@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - "**/Chart.yml"
+      - "**/Chart.yaml"
   workflow_dispatch:
 
 jobs:
