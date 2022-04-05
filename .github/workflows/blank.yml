@@ -10,3 +10,7 @@ on:
 jobs:
   update:
     uses: trialstudio/reusable_github_workflows/.github/workflows/helm_git_chart_repository.yml@main
+    with:
+      AWS_REGION: us-east-2
+      AWS_ASSUME_ROLE: arn:aws:iam::790387652718:role/helm-bucket
+      S3_BUCKET: gg1231
