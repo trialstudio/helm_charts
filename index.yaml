@@ -3,32 +3,12 @@ entries:
   test:
   - apiVersion: v2
     appVersion: 1.21.6-alpine
-    created: "2022-03-31T01:05:55.714231859+08:00"
+    created: "2022-04-05T18:52:28.59495611Z"
     description: A Helm chart for Kubernetes
-    digest: 63c1013780c794c17020424202c146817c6410f6b0ad2a5f960dfa482b0dc794
+    digest: f67f51dcaf10d1ea0e19e05806af2188cebbf12e93d60b0607f85f5ab0dbb7de
     name: test
     type: application
     urls:
-    - test-0.2.1.tgz
-    version: 0.2.1
-  - apiVersion: v2
-    appVersion: 1.21.6
-    created: "2022-03-31T01:05:55.713908086+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 78d5d40bdb52f26fef662d29ee892524d4bbbb638a2c4d9310bbcfa07ffa99a8
-    name: test
-    type: application
-    urls:
-    - test-0.2.0.tgz
-    version: 0.2.0
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-03-31T01:05:55.713591355+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 91b321b4cda30f883b40da0fc1ffca4301515aee9f23b3f1dbb8d25eab847231
-    name: test
-    type: application
-    urls:
-    - test-0.1.0.tgz
-    version: 0.1.0
-generated: "2022-03-31T01:05:55.713165328+08:00"
+    - https://gg1231.s3.us-east-2.amazonaws.com/test/test-0.4.6.tgz
+    version: 0.4.6
+generated: "2022-04-05T18:52:28.594132993Z"
