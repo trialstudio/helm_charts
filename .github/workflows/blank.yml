@@ -1,0 +1,12 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "**/Chart.yml"
+  workflow_dispatch:
+
+jobs:
+  update:
+    uses: trialstudio/reusable_github_workflows/.github/workflows/helm_git_chart_repository.yml@main
