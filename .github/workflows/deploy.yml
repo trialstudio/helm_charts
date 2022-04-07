@@ -10,7 +10,7 @@ on:
 jobs:
   update:
     uses: trialstudio/reusable_github_workflows/.github/workflows/helm_git_chart_repository.yml@main
-    with:
+    secrets:
       AWS_REGION: ${{ secrets.AWS_REGION }}
       AWS_ASSUME_ROLE: ${{ secrets.AWS_ASSUME_ROLE }}
       S3_BUCKET: ${{ secrets.S3_BUCKET }}
