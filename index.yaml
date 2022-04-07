@@ -1,5 +1,20 @@
 apiVersion: v1
 entries:
+  empty:
+  - apiVersion: v2
+    appVersion: 1.16.2
+    created: "2022-04-07T20:44:18.801196883Z"
+    dependencies:
+    - name: static-site
+      repository: https://trialstudio.github.io/helm_charts/
+      version: 0.1.1
+    description: A Helm chart for Kubernetes
+    digest: d32c7483b995a43043fcfd0e9357cc8dd0f0b2c191a24a8150a16c275eb480f3
+    name: empty
+    type: application
+    urls:
+    - https://s3.us-east-2.amazonaws.com/helm.trial.studio/empty/empty-0.1.0.tgz
+    version: 0.1.0
   static-site:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -21,4 +36,4 @@ entries:
     urls:
     - https://s3.us-east-2.amazonaws.com/helm.trial.studio/static-site/static-site-0.1.0.tgz
     version: 0.1.0
-generated: "2022-04-07T14:39:33.530120838Z"
+generated: "2022-04-07T20:44:18.800022962Z"
