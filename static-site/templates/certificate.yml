@@ -3,7 +3,6 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: {{ $fullName }}
-  namespace: default
 spec:
   secretName: {{ $fullName }}
   duration: 2160h # 90d
