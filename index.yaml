@@ -9,6 +9,6 @@ entries:
     name: static-site
     type: application
     urls:
-    - https://helm.trial.studio.s3.us-east-2.amazonaws.com/static-site/static-site-0.1.0.tgz
+    - https://s3.us-east-2.amazonaws.com/helm.trial.studio/static-site/static-site-0.1.0.tgz
     version: 0.1.0
 generated: "2022-04-07T09:45:59.702978473Z"
