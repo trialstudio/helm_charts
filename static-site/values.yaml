@@ -2,9 +2,9 @@ replicaCount: 2
 
 # NOTE: always update this since this is meant to be a generic chart
 app:
-  name: "name"
-  version: "version"
-  domain: "domain.com"
+  name: ""
+  version: ""
+  domain: ""
 
 resources:
   limits:
