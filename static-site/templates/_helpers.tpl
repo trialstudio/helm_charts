@@ -1,5 +1,5 @@
 {{- define "static-site.fullname" -}}
-{{- $name := default .Chart.Name .Values.appName }}
+{{- $name := default .Chart.Name .Values.app.name }}
 {{- if contains $name .Release.Name }}
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -21,7 +21,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{- define "static-site.selectorLabels" -}}
-app.kubernetes.io/name: {{ .Values.appName }}
+app.kubernetes.io/name: {{ .Values.app.name }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
