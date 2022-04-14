@@ -2,9 +2,10 @@ replicaCount: 2
 
 # NOTE: always update this since this is meant to be a generic chart
 app:
-  name: ""
-  version: ""
-  domain: ""
+  name: "svelte-test"
+  version: "0.5.0"
+  domain: "trial.studio"
+  registry: "790387652718.dkr.ecr.us-east-2.amazonaws.com"
 
 resources:
   limits:

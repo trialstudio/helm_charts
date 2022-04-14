@@ -16,6 +16,7 @@ spec:
       labels:
         {{- include "static-site.selectorLabels" . | nindent 8 }}
     spec:
+      serviceAccountName: {{ include "static-site.fullname" . }}
       containers:
         - name: {{ include "static-site.fullname" . }}
           securityContext:
@@ -25,11 +26,11 @@ spec:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
             runAsUser: 1000
-          image: "{{ .Values.app.name }}:{{ .Values.app.version }}"
+          image: "{{ .Values.app.registry }}/{{ .Values.app.name }}:{{ .Values.app.version }}"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8000
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -44,6 +45,8 @@ spec:
               name: cache
             - mountPath: /var/run
               name: run
+            - mountPath: /etc/nginx/conf.d/
+              name: nginx-default-conf
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
@@ -51,6 +54,9 @@ spec:
           emptyDir: {}
         - name: run
           emptyDir: {}
+        - name: nginx-default-conf
+          configMap:
+            name: nginx-default-conf
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
