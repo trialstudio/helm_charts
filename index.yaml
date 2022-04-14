@@ -3,6 +3,16 @@ entries:
   static-site:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-04-14T07:52:02.121241338Z"
+    description: A Helm chart for Kubernetes
+    digest: 8a0de8e6eea18c0e697f1ec69073e5a406c11e24869656d0fdc534f5ccf08c5e
+    name: static-site
+    type: application
+    urls:
+    - https://s3.us-east-2.amazonaws.com/helm.trial.studio/static-site/static-site-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-04-14T07:47:37.440880928Z"
     description: A Helm chart for Kubernetes
     digest: b78ffc657012e26a702c3fe7b3b633038c7c1abba06b5f018f34a97a8053fa22
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://s3.us-east-2.amazonaws.com/helm.trial.studio/static-site/static-site-0.1.0.tgz
     version: 0.1.0
-generated: "2022-04-14T07:47:37.440024123Z"
+generated: "2022-04-14T07:52:02.120761131Z"
