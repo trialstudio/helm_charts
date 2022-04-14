@@ -11,25 +11,22 @@ spec:
       {{- include "static-site.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        - linkerd.io/inject: enabled
       labels:
         {{- include "static-site.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "static-site.fullname" . }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+          image: "{{ .Values.app.name }}:{{ .Values.app.version }}"
+          imagePullPolicy: IfNotPresent
           ports:
             - name: http
               containerPort: 80
@@ -42,8 +39,18 @@ spec:
             httpGet:
               path: /
               port: http
+          volumeMounts:
+            - mountPath: /var/cache/nginx
+              name: cache
+            - mountPath: /var/run
+              name: run
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: cache
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

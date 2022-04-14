@@ -1,15 +1,14 @@
-{{- $fullName := include "static-site.fullname" . -}}
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: {{ $fullName }}
+  name: {{ include "static-site.fullname" . }}
 spec:
-  secretName: {{ $fullName }}
+  secretName: {{ include "static-site.fullname" . }}-tls
   duration: 2160h # 90d
   renewBefore: 360h # 15d
   subject:
     organizations:
-      - {{ .Values.certificateOrg }}
+      - {{ .Values.app.domain }}
   isCA: false
   privateKey:
     rotationPolicy: Always
@@ -20,7 +19,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-    - {{ .Values.hostName }}
+    - {{ include "static-site.host" . }}
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer

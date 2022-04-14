@@ -1,33 +1,10 @@
 replicaCount: 2
 
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  tag: ""
-
-imagePullSecrets: []
-
 # NOTE: always update this since this is meant to be a generic chart
-appName: "testing"
-
-podAnnotations:
-  linkerd.io/inject: enabled
-
-servicePort: 80
-
-ingressClassName: "nginx"
-ingressAnnotations: []
-
-hostName: "test.trial.studio"
-certificateOrg: "trialstudio"
-
-securityContext: {}
-#   capabilities:
-#     drop:
-#       - ALL
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-#   runAsUser: 1000
+app:
+  name: "name"
+  version: "version"
+  domain: "domain.com"
 
 resources:
   limits:
